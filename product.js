@@ -1,21 +1,21 @@
-var mongoose = require('mongoose');
+let mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
 
-var Schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
-var ProductSchema = new Schema({
- blockchainId: Number,
- name: String,
- category: String,
- ipfsImageHash: String,
- ipfsDescHash: String,
- startTime: Number,
- price: Number,
- condition: Number,
- buyer: String
+let ProductSchema = new Schema({
+	blockchainId: Number,
+	name: String,
+	category: String,
+	ipfsImageHash: String,
+	ipfsDescHash: String,
+	price: Number,
+	startTime: Number,
+	condition: Number,
+	buyer: String
 });
 
-var ProductModel = mongoose.model('ProductModel', ProductSchema);
+let ProductModel = mongoose.model("ProductModel", ProductSchema);
 
 module.exports = ProductModel;

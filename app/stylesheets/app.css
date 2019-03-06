@@ -7,13 +7,10 @@ a {
 }
 
 .navbar.main {
-  background: #5f6d7f;
+  background: #333a44;
   color: white;
 }
 
-.navbar.main .list.nav-link {
-  background: #01bf86;
-}
 
 .navbar.main a {
   color: white;
@@ -25,7 +22,7 @@ a {
 
 .side-bar.col-sm-2 {
   margin-left: 1em;
-  border-right: 1px solid #5f6d7f;
+  border-right: 1px solid #333a44;
 }
 
 #product-list.row {
@@ -40,7 +37,7 @@ a {
 .row h2,
 .categories a,
 #categories a {
-  color: #5f6d7f;
+  color: #333a44;
 }
 
 #product-list a,
@@ -57,9 +54,13 @@ a {
 
 #product-list img,
 #product-reveal-list img,
+#product-purchased img,
+#finish-mission img,
+#undergoing-mission img,
 #product-finalize-list img {
-  width: 150px;
-  height: 150px;
+  width: 80%;
+  height: 170px;
+	border-radius: 3px;
 }
 
 .container-fluid .title {
@@ -71,7 +72,7 @@ a {
 #product-list .details,
 .container-fluid .title,
 #product-finalize-list a {
-  color: #5f6d7f;
+  color: #333a44;
 }
 
 .product .details {
@@ -87,8 +88,7 @@ a {
 }
 
 #product-details-page {
-  color: #5f6d7f;
-  background-color: #e9ebef;
+  color: #333a44;
 }
 
 #product-details-page h4 {
@@ -105,8 +105,7 @@ a {
   color: #01bf86;
 }
 
-#product-details-page .bid-details,
-#product-details-page #product-desc {
+#product-details-page .bid-details {
   padding: 2em;
 }
 
@@ -118,7 +117,7 @@ a {
 }
 
 #product-details-page h1 {
-  color: #5f6d7f;
+  color: #333a44;
 }
 
 #product-details-page h2.product-name {
@@ -143,8 +142,61 @@ a {
   color: white;
 }
 
-#product-details-page #product-desc {
-  padding: 2em;
+#mission-details {
+	margin-top: 50px;
 }
 
+#applicants {
+	margin-top: 50px;
+}
 
+#solver-info {
+	margin-top: 90px;
+}
+
+body {
+}
+
+#escrow-info {
+	margin-top: 0px;
+}
+
+.category-btn {
+	padding: 10px 10px;
+}
+
+.title {
+  color: #333a44;
+	font-size: 1.2em;
+	margin-top: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.checked {
+	color: orange;
+	vertical-align: bottom;
+}
+
+#mission-apply {
+	padding-top: 120px;
+}
+
+.ch-beauty {
+	font-family: "Noto Sans TC", sans-serif;
+}
+
+.en-beauty {
+	font-family: 'Raleway', sans-serif;
+}
+
+img {
+	border-radius: 3px;
+}
+
+#product-desc {
+	height: 100%;
+	background-color: #F2F2F2;
+	padding: 10px;
+	border-radius: 5px;
+}
