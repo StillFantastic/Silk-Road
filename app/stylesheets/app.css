@@ -9,6 +9,7 @@ a {
 .navbar.main {
   background: #333a44;
   color: white;
+  height: 8vh;
 }
 
 
@@ -199,4 +200,55 @@ img {
 	background-color: #F2F2F2;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+.nav-item{
+}
+
+#useridtag{
+  background-color: #606966;
+  height: 6vh;
+  border-radius: 6px;
+  margin-top: 1vh;
+  padding: 0.5vh 2vw 2vh 2vw;
+}
+.inside{
+  margin:0 0 0 0;
+  padding: 0 0 0 0;
+  text-align: center;
+}
+.nav-link{
+  font-size: 2.5vh;
+  margin: 1vh 0 0 1vw;
+}
+.navbar-brand{
+  font-size:4vh;
+  padding-top: 3vh; 
+  padding-left: 3vw;
+}
+.addimg{
+  height: 100px;
+  width: 100px;
+  border-radius: 400vh;
+  background-color: #063c5f;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+}
+.addbut{
+  font-size: 300%;
+}
+.deploymission{
+  background-color: #222072;
+  border-radius: 5vh;
+  width: 60%;
+  padding: 1vh 0 0vh 0;
+  position: absolute;
+  top: 5vh;
+  left: 20vw;
+}
+.closebutton{
+  position: absolute;
+  border-radius: 8vh;
+  left: 2vw;
 }

@@ -4,97 +4,125 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><title>Silk Road</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./app.js"></script>
 </head>
-<body>
+<body class="ch-beauty">
   <div id="product-details-page" class="row">
     <div class="container-fluid navbar navbar-light main">
-      <a href="/" class="navbar-brand">Silk Road</a>
+			<a href="/" class="navbar-brand en-beauty">Silk Road</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <li class="nav-item"><a href="list-item.html" class="nav-link btn">Publish Mission</a></li>
-          <li class="nav-item"><a href="finish-item.html" class="nav-link btn">Done Mission</a></li>
-          <li class="nav-item"><a href="list-item.html" class="nav-link btn">Undergoing Mission</a></li>
+          <li class="nav-item"><a href="list-item.html" class="nav-link btn">發佈任務</a></li>
+          <li class="nav-item" style="padding-left:55.7vw;"><a href="finish-item.html" class="nav-link btn" >已完成</a></li>
+          <li class="nav-item"><a href="list-item.html" class="nav-link btn">進行中</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-12">
       <div style="display: none;" class="alert alert-success text-center" id="msg"></div>
     </div>
-    <div class="col-sm-12"><h1 class="text-center">Mission Details</h1></div>
+    <div class="col-sm-12"><h1 class="text-center">任務細節</h1></div>
 		<hr>
 		<br>
 		<br>
-    <div class="col-sm-offset-1 col-sm-5" id="mission-details">
-      <div class="col-sm-12">
-        <div id="product-image"></div>
-				<hr>
-        <h2 id="product-name"></h2>
-				<br>
-        <div id="product-desc"></div>
-      </div>
-    </div>
-
-		<div class="col-sm-5" id="mission-apply">
-			<div class="text-center">
-				<h4>Apply</h4>
-			</div>
-			<br>
-      <form class="form-horizontal" id="apply-form">
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Describe your ability</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" id="apply-description" placeholder="Describe your ability" required="required"></textarea>
-					</div>
+		<div class="row">
+    	<div class="col-sm-offset-2 col-sm-8" id="mission-details">
+    	  <div class="col-sm-5">
+    	    <div id="product-image"></div>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Contact info</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" id="apply-contact" placeholder="Your contact information" required="required"></textarea>
+				<div class="col-sm-7" style="height: 240px;">
+					<div style="border-bottom: 2px solid #666;">
+    	    	<h2 id="product-name"></h2>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Price</label>
-					<div class="col-sm-9">
-						<input type="number" class="form-control" id="apply-price" placeholder="The price you want. (in ether)" required="required">
-					</div>
-				</div>
-
-        <input type="hidden" name="mission-id" id="mission-id" />
-        <br>
-
-        <button type="submit" class="btn col-sm-offset-3">Apply</button>
-      </form>
+					<br>
+    	    <div id="product-desc"></div>
+    	  </div>
+    	</div>
 		</div>
 		
-		<div class="col-md-5" id="solver-info">
-			<div class="text-center">
-				<h3>Solver</h3>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8" id="mission-apply">
+					<div class="text-center">
+						<h4>申請</h4>
+					</div>
+					<br>
+    		  <form id="apply-form">
+						<div class="row">
+							<div class="form-group col-md-offset-2 col-md-8">
+								<label>能力形容</label>
+								<div>
+									<textarea class="form-control" id="apply-description" placeholder="Describe your ability" required="required"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-offset-2 col-md-8">
+								<label>聯絡資訊</label>
+								<div>
+									<textarea class="form-control" id="apply-contact" placeholder="Your contact information" required="required"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-offset-2 col-md-8">
+								<label>價格</label>
+								<div>
+									<input class="form-control" id="apply-price" placeholder="The price you want. (in ether)" required="required">
+								</div>
+							</div>
+						</div>
+
+    		    <input type="hidden" name="mission-id" id="mission-id" />
+    		    <br>
+						
+						<div class="row">
+    		   		<button type="submit" class="btn col-md-offset-9">Apply</button>
+						</div>
+    		  </form>
+				</div>
+				
+				<div class="col-sm-offset-1 col-sm-10" id="solver-info">
+					<div>
+						<div style="display: inline-block;"><h3>成交人</h3></div>
+						<div id="rate" class="pull-right" style="display: inline-block; margin-left: 10px;">
+							<span class="fa fa-star checked" id="1one" style="font-size: 30px; cursor: pointer;"></span> 
+							<span class="fa fa-star checked" id="2one" style="font-size: 30px; cursor: pointer;"></span> 
+							<span class="fa fa-star checked" id="3one" style="font-size: 30px; cursor: pointer;"></span> 
+							<span class="fa fa-star checked" id="4one" style="font-size: 30px; cursor: pointer;"></span> 
+							<span class="fa fa-star checked" id="5one" style="font-size: 30px; cursor: pointer;"></span> 
+							<button class="btn" id="rating-btn" style="margin-top: 20px;">Submit</button>
+						</div>
+					</div>
+					<table class="table" id="solver-table">
+						<tr>
+							<th>地址</th>
+							<th>出價</th>
+							<th>能力形容</th>
+							<th>聯絡資訊</th>
+							<th>評價</th>
+							<th>接案數</th>
+						</tr>
+					</table>
+				</div>
 			</div>
-			<table class="table" id="solver-table">
-				<tr>
-					<th>Address</th>
-					<th>Price</th>
-					<th>Ability</th>
-					<th>Contact</th>
-					<th>Avg. rate</th>
-					<th>Done case</th>
-				</tr>
-			</table>
 		</div>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div style="margin-top: 90px;"></div>
+				<div class="col-md-10 col-md-offset-1">
 				<table id="applicants" class="table">
 					<tr>
-						<th width="16%">Applicant id</th>
-						<th width="16%">Price</th>
-						<th width="16%">Ability</th>
-						<th width="16%">Contact</th>
-						<th width="16%">Avg. rate</th>
-						<th width="16%">Done case</th>
+						<th width="16%">編號</th>
+						<th width="16%">出價</th>
+						<th width="16%">能力描述</th>
+						<th width="16%">聯絡資訊</th>
+						<th width="16%">評價</th>
+						<th width="16%">接案數</th>
 					</tr>
 				</table>
 			</div>
@@ -102,19 +130,12 @@
 
 		<div class="container">
 			<div class="row">
-				<div id="rate" style="margin-top: 50px; margin-left: 40px;">
-					<span class="fa fa-star checked" id="1one" style="font-size: 40px; cursor: pointer;"></span> 
-					<span class="fa fa-star checked" id="2one" style="font-size: 40px; cursor: pointer;"></span> 
-					<span class="fa fa-star checked" id="3one" style="font-size: 40px; cursor: pointer;"></span> 
-					<span class="fa fa-star checked" id="4one" style="font-size: 40px; cursor: pointer;"></span> 
-					<span class="fa fa-star checked" id="5one" style="font-size: 40px; cursor: pointer;"></span> 
-					<button class="btn" id="rating-btn" style="margin-bottom: 15px;">Submit</button>
-				</div>
         <div id="escrow-info" class="col-md-12">
-          <div>No. of Participants that have released funds from Escrow: <span id="release-count"></span></div>
-          <div>No. of Participants that have refunded funds from Escrow: <span id="refund-count"></span></div>
-          <a id="release-funds" class="btn btn-primary form-submit">Release Amount to Solver</a>
-          <a id="refund-funds" class="btn btn-primary form-submit">Refund Amount to Buyer</a>
+          <div>放款的數量: <span id="release-count"></span></div>
+          <div>退款的數量: <span id="refund-count"></span></div>
+					<div style="margin-top: 5px;"></div>
+          <div id="release-funds" class="btn form-submit" style="background-color: #DDD;">放款</div>
+          <div id="refund-funds" class="btn form-submit" style="background-color: #DDD;">退款</div>
         </div>
 			</div>
 		</div>

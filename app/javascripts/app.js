@@ -144,6 +144,12 @@ window.App = {
 				console.log(error);
 			});
 		});
+		$("#deploybut").click(function(){
+			$("#deploymission").show();
+		});
+		$("#quitshop").click(function(){
+			$("#deploymission").hide();
+		})
   }
 };
 
