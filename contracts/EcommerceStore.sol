@@ -6,11 +6,11 @@ contract EcommerceStore {
     uint public missionIndex;
     uint public applicantIndex;
     
-	address payable public arbiter;
+    address payable public arbiter;
 
     mapping(address => mapping(uint => Mission)) stores;
     mapping(uint => address payable) missionOwner;
-	mapping(uint => address) missionEscrow;
+    mapping(uint => address) missionEscrow;
     mapping(uint => Applicant[]) candidates;
     mapping(uint => uint) applicantAmount;
     mapping(uint => Applicant) applicantById;
@@ -39,7 +39,7 @@ contract EcommerceStore {
     
     constructor(address payable _arbiter) public {
         missionIndex = 0;
-		arbiter = _arbiter;
+    arbiter = _arbiter;
     }
     
     function addMissionToStore(string memory _name, string memory _category, string memory _imageLink, 

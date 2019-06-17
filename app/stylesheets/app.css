@@ -9,7 +9,7 @@ a {
 .navbar.main {
   background: #333a44;
   color: white;
-  height: 8vh;
+  height: 65px;
 }
 
 
@@ -207,48 +207,59 @@ img {
 
 #useridtag{
   background-color: #606966;
-  height: 6vh;
+  height: 55px;
   border-radius: 6px;
-  margin-top: 1vh;
-  padding: 0.5vh 2vw 2vh 2vw;
+  margin-top: 5px;
 }
+
 .inside{
-  margin:0 0 0 0;
-  padding: 0 0 0 0;
+	padding: 0px 10px;
   text-align: center;
 }
+
 .nav-link{
   font-size: 2.5vh;
   margin: 1vh 0 0 1vw;
 }
+
 .navbar-brand{
   font-size:4vh;
   padding-top: 3vh; 
   padding-left: 3vw;
 }
 .addimg{
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border-radius: 400vh;
-  background-color: #063c5f;
+  background-color: #36434b;
   position: fixed;
-  bottom: 10%;
-  right: 5%;
+  bottom: 7%;
+  right: 3%;
 }
 .addbut{
   font-size: 300%;
 }
 .deploymission{
-  background-color: #222072;
+  background-color: #dddcff;
   border-radius: 5vh;
   width: 60%;
-  padding: 1vh 0 0vh 0;
+  padding-bottom: 20px;
   position: absolute;
-  top: 5vh;
+  top: 20vh;
   left: 20vw;
 }
 .closebutton{
   position: absolute;
   border-radius: 8vh;
   left: 2vw;
+}
+
+.btn-primary:hover {
+	background-color: #2b2d2f;
+	border-color: #2b2d2f;
+}
+
+.btn-primary {
+	border-color: #2b2d2f;
+	background-color: #36434b;
 }

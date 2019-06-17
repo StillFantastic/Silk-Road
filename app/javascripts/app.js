@@ -7,8 +7,10 @@ const ipfsAPI = require('ipfs-api');
 const ipfs = ipfsAPI({host: '127.0.0.1', port: '5001', protocol: 'http'});
 
 import ecommerce_store_artifacts from '../../build/contracts/EcommerceStore.json'
+import erc20 from "../../build/contracts/SilkToken.json"
 
 var EcommerceStore = contract(ecommerce_store_artifacts);
+var ERC20 = contract(erc20);
 
 var reader;
 var rating;
@@ -20,6 +22,7 @@ window.App = {
     var self = this;
 
     EcommerceStore.setProvider(web3.currentProvider);
+		ERC20.setProvider(web3.currentProvider);
 
 		setInterval(function() {
 			if (window.user == null) {
@@ -28,6 +31,18 @@ window.App = {
 				location.reload();
 			}
 		}, 100);
+
+		$("#buy-coin").click(function(event) {
+			ERC20.deployed().then(function(instance) {
+				instance.buyERC20({from: web3.eth.accounts[0], value: web3.toWei(1, "ether")});
+			});
+		});
+
+		if ($("#user-address").length > 0) {
+			setTimeout(function() {
+				$("#user-address").text((web3.eth.accounts[0]).substr(0, 10) + "...");
+			}, 100);
+		}
 
 		if ($("#categories").length > 0) {
 			for (let i = 0; i < categories.length; i++) {
@@ -400,7 +415,9 @@ function renderApplicants(missionId) {
 												EcommerceStore.deployed().then(function(instance) {
 													myInstance = instance;
 													instance.getApplicant.call(missionId, applicantId).then(function(applicant) {
-														myInstance.deal(missionId, applicant[0], {from: web3.eth.accounts[0], value: applicant[4]});
+														myInstance.deal(missionId, applicant[0], {from: web3.eth.accounts[0], value: applicant[4]}).then(function(tx) {
+															location.reload();
+														});
 													});
 												}).catch(function(error) {
 													console.log(error);
