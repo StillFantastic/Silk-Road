@@ -4,7 +4,7 @@ import { default as Web3} from 'web3';
 import { default as contract } from 'truffle-contract'
 
 const ipfsAPI = require('ipfs-api');
-const ipfs = ipfsAPI({host: '127.0.0.1', port: '5001', protocol: 'http'});
+const ipfs = ipfsAPI({host: '54.189.151.194', port: '5001', protocol: 'http'});
 
 import ecommerce_store_artifacts from '../../build/contracts/EcommerceStore.json'
 import erc20 from "../../build/contracts/SilkToken.json"
@@ -28,6 +28,7 @@ window.App = {
 			if (window.user == null) {
 				window.user = web3.eth.accounts[0];
 			} else if (window.user != web3.eth.accounts[0]) {
+				window.user = web3.eth.accounts[0];
 				location.reload();
 			}
 		}, 100);
@@ -39,7 +40,7 @@ window.App = {
 		});
 
 		if ($("#user-address").length > 0) {
-			setTimeout(function() {
+			setInterval(function() {
 				$("#user-address").text((web3.eth.accounts[0]).substr(0, 10) + "...");
 			}, 100);
 		}
@@ -47,7 +48,7 @@ window.App = {
 		if ($("#categories").length > 0) {
 			for (let i = 0; i < categories.length; i++) {
 				let cate = $("<a>");
-				cate.attr({href: "http://localhost:8080" + "?category=" + categories[i]});
+				cate.attr({href: "http://54.189.151.194/index.html" + "?category=" + categories[i]});
 				cate.addClass("category-btn");
 				cate.append("<div>" + categories[i] + "</div>");
 				$("#categories").append(cate);
@@ -69,7 +70,7 @@ window.App = {
 		} else {
 			let category = new URLSearchParams(window.location.search).get("category");
 			if (category == "All") {
-				window.location.href = "http://localhost:8080";
+				window.location.href = "http://54.189.151.194/index.html";
 			}
 			renderStore(category);
 		}
@@ -173,7 +174,7 @@ function renderProductDetails(productId) {
 		return instance.getProduct.call(productId).then(function(product) {
 			$("#product-name").html(product[1]);
 			$("#product-price").html(displayPrice(product[5]));
-			$("#product-image").html("<img width=400px height=400px src='http://localhost:8081/ipfs/" + product[3] + "'/>");
+			$("#product-image").html("<img width=400px height=400px src='http://54.189.151.194:8081/ipfs/" + product[3] + "'/>");
 			$("#product-id").val(product[0]);
 			$("#buy-now-price").val(product[5]);
 			ipfs.cat(product[4]).then(function(file) {
@@ -202,7 +203,7 @@ function renderMissionDetails(missionId) {
 	EcommerceStore.deployed().then(function(instance) {
 		return instance.getMission.call(missionId).then(function(mission) {
 			$("#product-name").html(mission[1]);
-			$("#product-image").html("<img width=300px height=300px src='http://localhost:8081/ipfs/" + mission[3] + "'/>");
+			$("#product-image").html("<img width=300px height=300px src='http://54.189.151.194:8081/ipfs/" + mission[3] + "'/>");
 			$("#mission-id").val(mission[0]);
 			ipfs.cat(mission[4]).then(function(file) {
 				let content = file.toString();
@@ -231,6 +232,7 @@ function saveMission(product) {
 	let textId;
 	let contactId;
 
+	product["product-contact"] = "";
 	saveImageOnIpfs(reader).then(function(id) {
 		imageId = id;
 		saveTextOnIpfs(product["product-description"]).then(function(id) {
@@ -241,7 +243,7 @@ function saveMission(product) {
 					return instance.addMissionToStore(product["product-name"], product["product-category"],
 						imageId, textId, contactId, {from: web3.eth.accounts[0], gas: 4700000});
 				}).then(function(tx) {
-					window.location.href = "http://localhost:8080/";
+					window.location.href = "http://54.189.151.194:8080/";
 				}).catch(function(error) {
 					console.log(error);
 				});
@@ -257,7 +259,7 @@ function saveImageOnIpfs(reader) {
 			console.log(response);
 			resolve(response[0].hash);
 		}).catch(function(err) {
-			console.err(err);
+			console.error(err);
 			reject(err);
 		});
 	});
@@ -270,7 +272,7 @@ function saveTextOnIpfs(text) {
 			console.log(response);
 			resolve(response[0].hash);
 		}).catch(function(err) {
-			console.err(err);
+			console.error(err);
 			reject(err);
 		});
 	});
@@ -291,7 +293,7 @@ function renderStore(category) {
 function renderProduct(product) {
 	let node = $("<div>");
 	node.addClass("col-sm-3 text-center col-margin-bottom-1 product");
-	node.append("<img src='http://localhost:8081/ipfs/" + product.ipfsImageHash + "'/>");
+	node.append("<img src='http://54.189.151.194:8081/ipfs/" + product.ipfsImageHash + "'/>");
 	node.append("<div class='title'>" + product.name + "</div>");
 	node.append("<div>Price: " + displayPrice(product.price) + "</div>");
 	node.append("<a href='product.html?id=" + product.blockchainId + "'>Details</a>");
@@ -308,7 +310,7 @@ function renderProduct(product) {
 	instance.getProduct.call(index).then(function(product) {
 		let node = $("<div>");
 		node.addClass("col-sm-3 text-center col-margin-bottom-1 product");
-		node.append("<img src='http://localhost:8081/ipfs/" + product[3] + "'/>");
+		node.append("<img src='http://54.189.151.194:8081/ipfs/" + product[3] + "'/>");
 		node.append("<div class='title'>" + product[1] + "</div>");
 		node.append("<div>Price: " + displayPrice(product[5]) + "</div>");
 		node.append("<a href='product.html?id=" + product[0] + "'>Details</a>");
@@ -332,7 +334,7 @@ function renderMission(index, category) {
 			if (category == null || category == mission[2]) {
 				node = $("<div>");
 				node.addClass("col-sm-3 text-center col-margin-bottom-1");
-				node.append("<img src='http://localhost:8081/ipfs/" + mission[3] + "'/>");
+				node.append("<img src='http://54.189.151.194:8081/ipfs/" + mission[3] + "'/>");
 				node.append("<div class='title'>" + mission[1] + "</div>");
 				node.append("<a href='product.html?id=" + mission[0] + "'>Details</a>");
 				if (mission[7] === "0x0000000000000000000000000000000000000000") {

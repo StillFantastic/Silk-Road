@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><title>Silk Road</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
@@ -12,12 +13,11 @@
 <body class="ch-beauty">
   <div id="product-details-page" class="row">
     <div class="container-fluid navbar navbar-light main">
-			<a href="/" class="navbar-brand en-beauty">Silk Road</a>
+			<a href="/index.html" class="navbar-brand en-beauty">Silk Road</a>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-
-					<li class="nav-item " style="padding-left:55.7vw;"><span id="buy-coin" style="padding-top: 15px;" class="nav-link btn list">買幣</span></li>
-          <li class="nav-item"><a href="list-item.html" class="nav-link btn">進行中</a></li>
+        <ul class="navbar-nav navbar-right">
+	      <li class="nav-item"><a id="buy-coin" style="padding-top: 15px;" class="nav-link btn list">買幣</a></li>
+          <li class="nav-item"><a href="/undergoing-item.html" class="nav-link btn">進行中</a></li>
           <li id = "useridtag" class="nav-item"><span><p class="inside">User Address:</p><p id="user-address" class="inside">hello</p></span></li>
         </ul>
       </div>
@@ -30,7 +30,7 @@
 		<br>
 		<br>
 		<div class="row">
-    	<div class="col-sm-offset-2 col-sm-8" id="mission-details">
+    	<div class="col-sm-offset-1 col-sm-10" id="mission-details">
     	  <div class="col-sm-5">
     	    <div id="product-image"></div>
 				</div>
@@ -48,7 +48,7 @@
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8" id="mission-apply">
 					<div class="text-center">
-						<h4>申請</h4>
+						<h1>申請</h1>
 					</div>
 					<br>
     		  <form id="apply-form">
@@ -56,7 +56,7 @@
 							<div class="form-group col-md-offset-2 col-md-8">
 								<label>能力形容</label>
 								<div>
-									<textarea class="form-control" id="apply-description" placeholder="Describe your ability" required="required"></textarea>
+									<textarea class="form-control" id="apply-description" required="required"></textarea>
 								</div>
 							</div>
 						</div>
@@ -64,7 +64,7 @@
 							<div class="form-group col-md-offset-2 col-md-8">
 								<label>聯絡資訊</label>
 								<div>
-									<textarea class="form-control" id="apply-contact" placeholder="Your contact information" required="required"></textarea>
+									<textarea class="form-control" id="apply-contact" required="required"></textarea>
 								</div>
 							</div>
 						</div>
@@ -72,7 +72,7 @@
 							<div class="form-group col-md-offset-2 col-md-8">
 								<label>價格</label>
 								<div>
-									<input class="form-control" id="apply-price" placeholder="The price you want. (in ether)" required="required">
+									<input class="form-control" id="apply-price" required="required">
 								</div>
 							</div>
 						</div>
@@ -81,7 +81,7 @@
     		    <br>
 						
 						<div class="row">
-    		   		<button type="submit" class="btn col-md-offset-9">Apply</button>
+    		   		<button type="submit" class="btn col-md-offset-2 col-md-8">Apply</button>
 						</div>
     		  </form>
 				</div>
